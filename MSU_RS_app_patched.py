@@ -64,12 +64,13 @@ def _require_login():
                 unsafe_allow_html=True
             )
 
-        st.title("RISe Login")
+        st.title(" Login")
         st.caption("Prototype access control. Authorized users only.")
         u = st.text_input("Username")
         p = st.text_input("Password", type="password")
 
-        if st.button("Login"):
+        if st.button("MSU Authorized User Login"):
+        st.caption("Access is restricted to Morgan State University personnel and approved affiliates.")
             allowed = st.secrets.get("users", {})
             if u in allowed and p == allowed[u]:
                 st.session_state.auth = True
